@@ -26,6 +26,13 @@ module.exports = function (grunt) {
                 },
                 command: 'dalek tests/*.js'
             },
+            dalekjsCoffee: {
+                options: {
+                    stdout: true,
+                    failOnError: true
+                },
+                command: 'dalek tests/*.coffee'
+            },
             dalekjsChrome: {
                 options: {
                     stdout: true,
@@ -50,6 +57,11 @@ module.exports = function (grunt) {
     grunt.registerTask('dalek', [
         'connect:server',
         'shell:dalekjs'
+    ]);
+
+    grunt.registerTask('dalek_coffee', [
+        'connect:server',
+        'shell:dalekjsCoffee'
     ]);
 
     grunt.registerTask('dalek_chrome', [
