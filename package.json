@@ -1,12 +1,16 @@
 {
   "name": "dalekjs_testcase",
   "version": "0.1.0",
+  "description": "Simple Website for testing Dalekjs",
+  "repository": ".",
+  "readme": "readme.md",
   "devDependencies": {
     "grunt": "~0.4.1",
     "matchdep": "~0.1.1",
     "grunt-contrib-connect": "~0.5.0",
     "dalekjs": "0.0.8",
     "grunt-shell": "~0.3.1",
-    "dalek-browser-firefox": "0.0.5"
+    "dalek-browser-firefox": "0.0.5",
+    "dalek-browser-chrome": "0.0.8"
   }
 }
