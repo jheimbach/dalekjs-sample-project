@@ -16,6 +16,13 @@ module.exports = function (grunt) {
                     base: 'htdocs',
                     keepalive: true
                 }
+            },
+            reports: {
+                options: {
+                    port: 9003,
+                    base: 'report/dalek',
+                    keepalive: true
+                }
             }
         },
         shell: {
@@ -40,6 +47,13 @@ module.exports = function (grunt) {
                 },
                 command: 'dalek tests/*.js -b chrome'
             },
+            dalekjsHtmlreport: {
+                options: {
+                    stdout: true,
+                    failOnError: true
+                },
+                command: 'dalek tests/*.js -r console,html'
+            },
             dalekjsFirefox: {
                 options: {
                     stdout: true,
@@ -54,6 +68,10 @@ module.exports = function (grunt) {
         'connect:preview'
     ]);
 
+    grunt.registerTask('reports', [
+        'connect:reports'
+    ]);
+
     grunt.registerTask('dalek', [
         'connect:server',
         'shell:dalekjs'
@@ -62,6 +80,12 @@ module.exports = function (grunt) {
     grunt.registerTask('dalek_coffee', [
         'connect:server',
         'shell:dalekjsCoffee'
+    ]);
+
+
+    grunt.registerTask('dalek_htmlreport', [
+        'connect:server',
+        'shell:dalekjsHtmlreport'
     ]);
 
     grunt.registerTask('dalek_chrome', [
