@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Simple Website for testing Dalekjs",
   "repository": ".",
+  "author": "Johannes Heimbach",
   "readme": "readme.md",
   "devDependencies": {
     "grunt": "~0.4.1",
