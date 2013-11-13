@@ -9,6 +9,13 @@ module.exports = function (grunt) {
                     port: 9001,
                     base: 'htdocs'
                 }
+            },
+            preview: {
+                options: {
+                    port: 9002,
+                    base: 'htdocs',
+                    keepalive: true
+                }
             }
         },
         shell: {
@@ -35,6 +42,10 @@ module.exports = function (grunt) {
             }
         }
     });
+
+    grunt.registerTask('preview', [
+        'connect:preview'
+    ]);
 
     grunt.registerTask('dalek', [
         'connect:server',

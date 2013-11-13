@@ -7,5 +7,40 @@ module.exports = {
             .open(url)
             .assert.title().is('Simple Responsive Template', 'It has title')
             .done();
+    },
+
+    'Menu is active': function (test) {
+        test
+            .open(url)
+            .assert.text('#menu-main-navigation li.current').is('Home page')
+            .done();
+    },
+
+    'Menu is complete': function (test) {
+        test
+            .open(url)
+            .assert.numberOfElements('#menu-main-navigation>li', 5, '5 Menuitems are there')
+            .done();
+    },
+
+    'Menulink is working': function (test) {
+        test
+            .open(url)
+            .screenshot('screenshots/:browser/before_menulink_is_working.png')
+            .click('#menu-main-navigation>li:nth-of-type(2) a')
+            .assert.title().is('Simple Responsive Template | Internal Site', 'It has title')
+            .screenshot('screenshots/:browser/after_menulink_is_working.png')
+            .back()
+            .assert.title().is('Simple Responsive Template', 'It has title')
+            .done();
+    },
+
+    'Flexslider changes visibility on small screens': function (test) {
+        test
+            .open(url)
+            .assert.visible('#hero .flexslider','Flexslider is visible')
+            .resize({width: 800, height: 768})
+            .assert.notVisible('#hero .flexslider','Flexslider is not visible')
+            .done();
     }
 };
