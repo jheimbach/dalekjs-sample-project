@@ -33,6 +33,13 @@ module.exports = function (grunt) {
                 },
                 command: 'dalek tests/*.js'
             },
+            dalekjsAdvanced: {
+                options: {
+                    stdout: true,
+                    failOnError: true
+                },
+                command: 'dalek tests/advanced/*.js'
+            },
             dalekjsCoffee: {
                 options: {
                     stdout: true,
@@ -75,6 +82,10 @@ module.exports = function (grunt) {
     grunt.registerTask('dalek', [
         'connect:server',
         'shell:dalekjs'
+    ]);
+    grunt.registerTask('dalek_advanced', [
+        'connect:server',
+        'shell:dalekjsAdvanced'
     ]);
 
     grunt.registerTask('dalek_coffee', [

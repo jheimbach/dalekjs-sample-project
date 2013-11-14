@@ -10,9 +10,9 @@ module.exports = {
             .back()
             .screenshot('screenshots/:browser/after_menulink_is_working.png')
             .assert.title().is('Simple Responsive Template', 'It has title')
-            .wait(5000)
+            .wait(10)
             .screenshot('screenshots/:browser/wait_for_images.png')
-            .wait(5000)
+            .wait(6020)
             .screenshot('screenshots/:browser/wait_for_next_slider.png')
             .done();
     }
