@@ -47,6 +47,13 @@ module.exports = function (grunt) {
                 },
                 command: 'dalek tests/*.coffee'
             },
+            dalekjsMultiple: {
+                options: {
+                    stdout: true,
+                    failOnError: true
+                },
+                command: 'dalek tests/*.js -b phantomjs,chrome -r console,html'
+            },
             dalekjsChrome: {
                 options: {
                     stdout: true,
@@ -107,5 +114,10 @@ module.exports = function (grunt) {
     grunt.registerTask('dalek_firefox', [
         'connect:server',
         'shell:dalekjsFirefox'
+    ]);
+
+    grunt.registerTask('dalek_multiple', [
+        'connect:server',
+        'shell:dalekjsMultiple'
     ]);
 };
