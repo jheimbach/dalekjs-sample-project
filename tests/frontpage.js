@@ -30,8 +30,9 @@ module.exports = {
             .screenshot('screenshots/:browser/before_menulink_is_working.png')
             .click('#menu-main-navigation>li:nth-of-type(2) a')
             .assert.title().is('Simple Responsive Template | Internal Site', 'It has title')
-            .back()
+            .wait(10)
             .screenshot('screenshots/:browser/after_menulink_is_working.png')
+            .back()
             .assert.title().is('Simple Responsive Template', 'It has title')
             .done();
     },
