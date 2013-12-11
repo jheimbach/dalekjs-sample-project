@@ -5,11 +5,14 @@ $(document).ready(function(){
 	// initialise  slideshow
 	 $('.flexslider').flexslider({
         animation: "slide",
-        start: function(slider){
+        start: function(){
           $('body').removeClass('loading');
+            window.dalek_flexslider = 'start';
+        },
+        after: function(slider) {
+            window.dalek_flexslider_start = 'Element ' + slider.currentSlide;
         }
       });
-
 });
 /**
  * Handles toggling the navigation menu for small screens.
